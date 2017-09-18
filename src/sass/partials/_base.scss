@@ -1,0 +1,13 @@
+body, html {
+    margin: 0;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+    font-family: 'Display Sans';
+    src: url('//interactive.guim.co.uk/fonts/displaysans/fonts/gdnsands6bol-webfont.woff2') format('woff2'),
+         url('//interactive.guim.co.uk/fonts/displaysans/fonts/gdnsands6bol-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
