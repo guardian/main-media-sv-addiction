@@ -1,200 +1,107 @@
-.fox {
+.addiction {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 9999;
-    background: #1e3f74;
-    font-family: 'Display Sans';
-    text-transform: uppercase;
-
-    &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        top: 30%;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(255, 255, 255, .1);
-    }
+    z-index: 9998;
+    background: #3e3842;
+    background-image: url('@@assetPath@@/assets/images/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
 }
 
-.fox__trump {
-    position: absolute;
-    z-index: 3;
-    top: 30%;
-    bottom: 0;
+.addiction__phone {
+    position: fixed;
     left: 0;
     right: 0;
-    background-image: url('@@assetPath@@/assets/images/trump.png');
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-
-    @include mq(tablet) {
-        max-width: 900px;
-        left: -35%;
-        right: 0;
-        margin: auto;
-        background-size: contain;
-    }
-}
-
-.fox-tv {
-    position: absolute;
-    z-index: 2;
-    top: 80px;
-    left: 30px;
-    right: 30px;
     margin: auto;
-    border: 6px solid $c-black;
-    display: inline-block;
+    z-index: 9999;
+    top: 18.6vh;
+    height: 22.3vh;
+    width: 22.3vh;
 
-    @include mq(tablet) {
-        width: 800px;
-        top: 35%;
-        left: 50%;
-        border-width: 12px;
-        transform: translateX(-50%) translateY(-50%);
+    @media screen and (orientation: landscape) {
+        top: 16.6vw;
+        width: 19.8vw;
+        height: 19.8vw;
+    }
+
+    @media screen and (max-aspect-ratio: 10/9) and (orientation: landscape) {
+        top: 18.6vh;
+        width: 22.3vh;
+        height: 22.3vh;
+    }
+
+    @media screen and (orientation: portrait) {
+        top: 18.6vh;
+        width: 22.3vh;
+        height: 22.3vh;
     }
 }
 
-.fox-tv__screen {
+.addiction__phone-image {
+    position: relative;
+    z-index: 10;
     width: 100%;
-    display: block;
+    height: 100%;
+    margin: 0 auto;
 }
 
-.fox-tv__graphics {
+@keyframes notify {
+    0%, 13%, 100% {
+        transform: translateX(100%) translateY(0)
+    }
+    14%, 29% {
+        transform: translateX(0) translateY(0);
+    }
+    30%, 45% {
+        transform: translateX(0) translateY(100%);
+    }
+    46%, 61% {
+        transform: translateX(0) translateY(200%);
+    }
+    62%, 77% {
+        transform: translateX(0) translateY(300%);
+    }
+    78%, 93% {
+        transform: translateX(0) translateY(400%);
+    }
+    94% {
+        transform: translateX(100%) translateY(400%);
+    }
+}
+
+.addiction__notification {
     position: absolute;
-    left: 20px;
-    bottom: 20px;
-    right: 20px;
-    overflow: hidden;
+    top: 49%;
+    z-index: 3;
+    left: 38.4%;
+    width: 21.4%;
+    animation: notify 12s linear infinite;
 }
 
-.fox-tv__graphics-top {
-    display: flex;
-    margin-bottom: 1vw;
-
-    @include mq(tablet) {
-        margin-bottom: 10px;
-    }
+.addiction__notification:nth-of-type(2) {
+    animation-delay: -2s;
 }
 
-.fox-tv__fox-logo {
-    position: relative;
-    width: 9%;
-    background-color: $c-blue;
-    margin-right: 1vw;
-
-    @include mq(tablet) {
-        margin-right: 10px;
-    }
-
-    &:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 2.7vw;
-        background-color: $c-red;
-
-        @include mq(tablet) {
-            height: 26px;
-        }
-    }
+.addiction__notification:nth-of-type(3) {
+    animation-delay: -4s;
 }
 
-.fox-tv__graphics-main {
-    flex-grow: 2;
+.addiction__notification:nth-of-type(4) {
+    animation-delay: -6s;
 }
 
-.fox-tv__headline {
-    text-align: center;
-    background-color: $c-white;
-    line-height: 1.6;
-    font-size: 2.6vw;
-    margin: 0;
-    color: $c-black;
-
-    @include mq(tablet) {
-        font-size: 26px;
-    }
+.addiction__notification:nth-of-type(5) {
+    animation-delay: -8s;
 }
 
-.fox-tv__show-name {
-    text-align: center;
-    font-family: 'Display Sans';
-    color: $c-white;
-    background-color: $c-blue;
-    font-size: 2.1vw;
-    line-height: 1.3;
-    margin: 0;
-
-    @include mq(tablet) {
-        font-size: 20px;
-    }
+.addiction__notification:nth-of-type(6) {
+    animation-delay: -10s;
 }
 
-.fox-tv__graphics-bottom {
-    background-color: $c-black;
-    overflow: hidden;
-    padding-left: 100%;
-    width: 100%;
-    height: 3.4vw;
-
-    @include mq(tablet) {
-        height: 30px;
-    }
-}
-
-@keyframes marquee {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-.fox-tv__graphics-ticker {
-    display: inline-block;
-    vertical-align: top;
-    white-space: nowrap;
-    padding-right: 100%;
-    animation: marquee 10s linear infinite;
-}
-
-.fox-tv__ticker {
-    position: relative;
-    padding: 0 24px 0 12px;
-    color: $c-white;
-    font-size: 2.1vw;
-    line-height: 1.3;
-    vertical-align: text-top;
-    display: inline-block;
-
-    @include mq(tablet) {
-        font-size: 20px;
-    }
-
-    &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        margin: auto;
-        bottom: 0px;
-        right: 4px;
-        width: 6px;
-        height: 6px;
-        border-radius: 6px;
-        background-color: $c-red;
-    }
+.addiction__notification:nth-of-type(7) {
+    animation-delay: -12s;
 }
